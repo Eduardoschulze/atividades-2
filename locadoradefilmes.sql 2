@@ -1,0 +1,238 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 01-Abr-2026 às 02:54
+-- Versão do servidor: 10.4.32-MariaDB
+-- versão do PHP: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `locadoradefilmes`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `atendimento`
+--
+
+CREATE TABLE `atendimento` (
+  `iddoatendimento` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `atendimento`
+--
+
+INSERT INTO `atendimento` (`iddoatendimento`) VALUES
+(2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `cpf` bigint(11) NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `datadenascimento` date DEFAULT NULL,
+  `endereco` text DEFAULT NULL,
+  `contato` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`cpf`, `nome`, `datadenascimento`, `endereco`, `contato`) VALUES
+(123456789, 'carlinhos', '0000-00-00', 'rua 01', 123456789),
+(1234567129, 'carlinhos', '0000-00-00', 'rua 01', 123456789),
+(12345671129, 'carlinhos', '2004-11-25', 'rua 01', 123456789),
+(12345678900, 'João Silva', '1990-05-12', 'Rua das Flores, 123', 4799911),
+(15935725800, 'Bruno Pereira', '1995-07-19', 'Av. Atlântica 890', 2147483647),
+(25836914700, 'Patrícia Alves', '1989-10-03', 'Rua Bela Vista 852', 2147483647),
+(35715948600, 'Lucas Fernandes', '1996-06-22', 'Av. Independência 963', 2147483647),
+(45612378900, 'Carlos Souza', '1992-11-30', 'Rua São Pedro 78', 2147483647),
+(74185296300, 'Ana Costa', '1988-02-14', 'Rua das Palmeiras 210', 2147483647),
+(75395145600, 'Fernanda Lima', '1993-09-05', 'Rua do Comércio 321', 2147483647),
+(85245615900, 'Ricardo Gomes', '1987-12-28', 'Rua Central 654', 2147483647),
+(95175385200, 'Juliana Martins', '1991-04-10', 'Rua das Acácias 147', 2147483647),
+(98765432100, 'Maria Oliveira', '1985-08-23', 'Av. Brasil, 456', 2147483647);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estoque`
+--
+
+CREATE TABLE `estoque` (
+  `ID` int(11) NOT NULL,
+  `quantidade` int(11) DEFAULT NULL,
+  `funcionario` varchar(45) DEFAULT NULL,
+  `localizacao` varchar(45) DEFAULT NULL,
+  `statos` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `estoque`
+--
+
+INSERT INTO `estoque` (`ID`, `quantidade`, `funcionario`, `localizacao`, `statos`) VALUES
+(1, 50, 'Gabriel Rocha', 'Prateleira A1', 'Disponível'),
+(2, 3, 'Camila Ferreira', 'Prateleira B2', 'Baixo estoque'),
+(3, 120, 'Eduardo Ribeiro', 'Depósito Central', 'Disponível'),
+(4, 0, 'Larissa Mendes', 'Prateleira C3', 'Esgotado'),
+(5, 35, 'Felipe Cardoso', 'Prateleira A2', 'Disponível'),
+(6, 8, 'Aline Batista', 'Prateleira B1', 'Baixo estoque'),
+(7, 60, 'Thiago Nunes', 'Depósito Central', 'Disponível'),
+(8, 15, 'Renata Duarte', 'Prateleira C1', 'Reposição'),
+(9, 2, 'Marcelo Teixeira', 'Prateleira B3', 'Disponível'),
+(10, 90, 'Vanessa Freitas', 'Depósito Central', 'Disponível'),
+(123456789, 2147483647, 'eduardo', 'rua 02', 'funcionando');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fornecedor`
+--
+
+CREATE TABLE `fornecedor` (
+  `CNPJ` int(11) NOT NULL,
+  `contato` bigint(20) DEFAULT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `endereco` text DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `fornecedor`
+--
+
+INSERT INTO `fornecedor` (`CNPJ`, `contato`, `nome`, `endereco`, `email`) VALUES
+(2147483647, 49991418503, 'clovis', 'rua 03', 'clovis@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `funcionarios`
+--
+
+CREATE TABLE `funcionarios` (
+  `matricula` int(11) NOT NULL,
+  `genero` varchar(45) DEFAULT NULL,
+  `cargo` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `funcionarios`
+--
+
+INSERT INTO `funcionarios` (`matricula`, `genero`, `cargo`, `nome`, `email`) VALUES
+(2147483647, 'masculino', 'caixa', 'jubileu', 'jubileu@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `locacao`
+--
+
+CREATE TABLE `locacao` (
+  `nf` int(11) NOT NULL,
+  `datas` date DEFAULT NULL,
+  `valor` double DEFAULT NULL,
+  `statos` varchar(45) DEFAULT NULL,
+  `genero` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `locacao`
+--
+
+INSERT INTO `locacao` (`nf`, `datas`, `valor`, `statos`, `genero`) VALUES
+(2147483647, '2026-03-31', 15, 'alugado', 'masculino');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pagamento`
+--
+
+CREATE TABLE `pagamento` (
+  `id` int(11) NOT NULL,
+  `desconto` int(11) DEFAULT NULL,
+  `taxa` int(11) DEFAULT NULL,
+  `formadepagamento` varchar(45) DEFAULT NULL,
+  `datadevencimento` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `pagamento`
+--
+
+INSERT INTO `pagamento` (`id`, `desconto`, `taxa`, `formadepagamento`, `datadevencimento`) VALUES
+(2147483647, 2, 5, 'cartao de credito', '2026-03-31');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `atendimento`
+--
+ALTER TABLE `atendimento`
+  ADD PRIMARY KEY (`iddoatendimento`);
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`cpf`);
+
+--
+-- Índices para tabela `estoque`
+--
+ALTER TABLE `estoque`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `fornecedor`
+--
+ALTER TABLE `fornecedor`
+  ADD PRIMARY KEY (`CNPJ`);
+
+--
+-- Índices para tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD PRIMARY KEY (`matricula`);
+
+--
+-- Índices para tabela `locacao`
+--
+ALTER TABLE `locacao`
+  ADD PRIMARY KEY (`nf`);
+
+--
+-- Índices para tabela `pagamento`
+--
+ALTER TABLE `pagamento`
+  ADD PRIMARY KEY (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
